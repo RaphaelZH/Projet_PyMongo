@@ -1,0 +1,235 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Overleaf (WriteLaTeX) Example: Molecular Chemistry Presentation
+%
+% Source: http://www.overleaf.com
+%
+% In these slides we show how Overleaf can be used with standard 
+% chemistry packages to easily create professional presentations.
+% 
+% Feel free to distribute this example, but please keep the referral
+% to overleaf.com
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use Overleaf: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usetheme{Madrid}
+\useoutertheme{split} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+
+%%%%%%%%%%
+% Giorgio Morandi #colors_1
+\definecolor{color0}{HTML}{372639}
+\definecolor{color1}{HTML}{C2A4C0}
+\definecolor{color2}{HTML}{816288}
+\definecolor{color3}{HTML}{C6926C}
+\definecolor{color4}{HTML}{D5BEA9}
+\definecolor{color5}{HTML}{DBCAD3}
+%%%%%%%%%%
+
+%%%%%%%%%%
+\setbeamercolor{normal text}{bg = color5!25, fg = color0}
+%\setbeamercolor{alerted text}{bg = color5, fg = color1}
+%\setbeamercolor{example text}{bg = color5, fg = color1!50!color0}
+
+\setbeamercolor{palette primary}{bg = color3, fg = color5!50}
+%\setbeamercolor{palette secondary}{bg = color1, fg = color5}
+%\setbeamercolor{palette tertiary}{bg = color4, fg = color5}
+
+\setbeamercolor{palette quaternary}{bg = color2!50, fg = color0!75}
+
+\setbeamercolor{structure}{bg = color5!50, fg = color4} % itemize, enumerate, etc
+
+\setbeamercolor{section in toc}{bg = color5!50, fg = color1} % TOC sections
+
+% Override palette coloring with secondary
+\setbeamercolor{subsection in head/foot}{bg = color3!50, fg = color2}
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%%%%%%%%%%
+
+%%%%%%%%%%
+\mode<presentation>
+{
+  \usetheme{Madrid}       % or try default, Darmstadt, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{serif}    % or try default, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+
+\usepackage[english, french]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{chemfig}
+\usepackage[version = 3]{mhchem}
+
+% On Overleaf, these lines give you sharper preview images.
+% You might want to `comment them out before you export, though.
+\usepackage{pgfpages}
+\pgfpagesuselayout{resize to}[%
+  physical paper width = 8in, physical paper height = 6in]
+  
+% Here's where the presentation starts, with the info for the title slide
+\title[Sujet n°15]{\textsc{Un modèle de coût pour le NoSQL}}
+\author{Hao ZHANG}
+\institute{\texttt{Parcours Recherche 2018--2019}}
+
+\usepackage{datetime}
+\newdate{date}{6}{11}{2018}
+\date{\displaydate{date}}
+%\date{11 novembre 2018}
+
+\logo{\includegraphics[height = 7mm]{images/Logo_ESILV.png}}
+
+\setbeamersize{text margin left = 0.25in, text margin right = 0.25in}
+
+\usepackage{ragged2e}
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0.25in}
+
+\begin{document}
+
+% Page_1
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Sujet d'Étude}
+% Page_2
+% These three lines create an automatically generated table of contents.
+\begin{frame}
+	\frametitle{Sommaire}
+	\tableofcontents[currentsection]
+\end{frame}
+
+% Page_3
+\subsection{Contexte de la Recherche}
+\begin{frame}{Contexte de la Recherche}
+	\raggedright
+	Dans le BigData, les bases NoSQL répondent au problème de stockage et de distribution des données à large échelle pour souvent répondre à des problèmes de performances en centralisé.\\
+	\vspace{1em}
+	De nombreuses solutions existent, et faire le bon choix lors de la définition des besoins d’un Système d'Information devient un choix crucial, car il est difficile et risqué de faire un changement technologique.
+\end{frame}
+
+% Page_4
+\subsection{Objectif de Projet}
+\begin{frame}{Objectif de Projet}
+	\raggedright
+	Le but de ce projet de recherche est de définir un modèle de coût d’évaluation de requêtes sur des solutions NoSQL.\\
+	\vspace{1em}
+	Ainsi, ce modèle de coût (accès réseaux et accès locaux) sera capable d’estimer pour chaque type de requête ce qu’il en coûtera, et ainsi de choisir la solution NoSQL qui minimise ce coût.\\
+	\vspace{1em}
+	L'objectif de ce projet est donc de raffiner les modèles de coût existant dans la littérature pour avoir un modèle plus global, le plus précis possible. 
+\end{frame}
+
+\section{Évaluation de la Base de Données NoSQL}
+% Page_5
+\begin{frame}
+\frametitle{Sommaire}
+\tableofcontents[currentsection]
+\end{frame}
+
+% Page_6
+\subsection{Évaluation des Attributs de Qualité}
+\begin{frame}[fragile]
+	\frametitle{Évaluation des Attributs de Qualité}
+	\textbf{Conception de la recherche et méthodologie:}
+	\begin{itemize}
+		\item[•] Identifier plusieurs attributs de qualité souhaitables à évaluer dans des bases de données NoSQL.
+		\begin{itemize}
+			\item[$\circ$] disponibilité, cohérence, durabilité, maintenabilité, performance, fiabilité, robustesse, évolutivité, délai de stabilisation et de rétablissement
+		\end{itemize}
+		\item[•] Identifier les systèmes NoSQL les plus populaires et les plus utilisés. 
+		\begin{itemize}
+			\item[$\circ$] Aerospike, Cassandra, Couchbase, CouchDB, HBase, MongoDB and Voldemort
+		\end{itemize}
+		\item[•] Explorer la littérature pour évaluer les attributs de qualité sélectionnés sur les bases de données susmentionnées.
+	\end{itemize}	
+\end{frame}
+
+% Page_7
+\subsection{Aperçu de la Performance}
+\begin{frame}[fragile]
+	\frametitle{Aperçu de la Performance}
+	\textbf{Conception de la recherche et méthodologie:}
+	\begin{itemize}
+		\item[•] Comparez les cinq bases de données NoSQL les plus courantes en termes de performances des requêtes, basées sur les lectures et les mises à jour, en prenant en compte les charges de travail typiques, telles que représentées par Yahoo! Benchmark Serving Cloud.
+		\begin{itemize}
+			\item[$\circ$] Cassandra et HBase: bases de données de familles de colonnes.
+			\item[$\circ$] MongoDB et OrientDB: bases de données de familles de document.
+			\item[$\circ$] Redis: base de données de familles de clé-valeur.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+\section{Transformation et Mirgation vers NoSQL}
+% Page_8
+\begin{frame}
+	\frametitle{Sommaire}
+	\tableofcontents[currentsection]
+\end{frame}
+
+\subsection{Transformation d’un Modèle Relationnels}
+% Page_9
+\begin{frame}[fragile]
+	\frametitle{Transformation d’un Modèle relationnels}
+	\begin{block}{Mappage de Schéma}
+		Procédure générale:
+		\begin{itemize}
+			\item[•] Phase I, Définir la base de données source.
+			\item[•] Phase II, Classification des tables.
+			\item[•] Phase III, Définition de la base de données cible.
+			\item[•] Phase IV, Execute Data Conversion.
+			\begin{itemize}
+				\item[$\circ$] denormalization
+				\item[$\circ$] migration
+			\end{itemize}	
+		\end{itemize}
+		Cas de recherche:
+		SQL à MongDB, SQL à HBase, SQL à NoSQL, SQL(CMS, Content Management System) à NoSQL
+	\end{block}
+\end{frame}
+
+% Page_10
+\begin{frame}[fragile]
+	\frametitle{Cadre de Migration}
+	Cadre capable de prendre en charge facilement la migration d’une base de données relationnelle (par exemple, MySQL) vers une base de données NoSQL (par exemple, MongoDB).
+	\begin{block}{Data Migration Module}
+		Un ensemble de méthodes permettant une migration transparente entre les SGBD (par exemple, de MySQL vers MongoDB).
+	\end{block}
+	\begin{block}{Module de Mappage de Données}
+		Fournir une couche de persistance pour traiter les requêtes de base de données, tout en renvoyant les données dans un format approprié.
+	\end{block}
+\end{frame}
+
+% Page_11
+\subsection{Transformation d’un Modèle conceptuel}
+\begin{frame}{Transformation d’un Modèle conceptuel}
+	\begin{block}{Basé sur Model Driven Architecture (MDA)}
+	Procédure générale:
+	\begin{itemize}
+		\item[•] Phase I, construire les métamodèles du diagramme de classes UML et de la base de données NoSQL.
+		\item[•] Phase II, proposer les règles de mappage entre les deux métamodèles.
+		\item[•] Phase III, construire le diagramme de classes UML, et générer le modèle de base de données NoSQL par transformation.
+	\end{itemize}
+	Cas de recherche:
+	UML à NoSQL, UML à HBase, UML à GraphDB
+\end{block}
+\end{frame}
+
+\end{document}

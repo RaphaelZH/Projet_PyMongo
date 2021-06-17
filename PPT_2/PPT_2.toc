@@ -1,0 +1,12 @@
+\select@language {french}
+\beamer@sectionintoc {1}{Sujet d'Étude}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Contexte de la Recherche}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Objectif de Projet}{4}{0}{1}
+\beamer@sectionintoc {2}{État de l'art}{5}{0}{2}
+\beamer@sectionintoc {3}{Hypothèse}{8}{0}{3}
+\beamer@subsectionintoc {3}{1}{Normalisation et Dénormalisation}{9}{0}{3}
+\beamer@subsectionintoc {3}{2}{Objectif de recherche}{11}{0}{3}
+\beamer@sectionintoc {4}{Démarche Expérimentale}{12}{0}{4}
+\beamer@subsectionintoc {4}{1}{Modélisation}{13}{0}{4}
+\beamer@subsectionintoc {4}{2}{Quatre requêtes de CRUD}{15}{0}{4}
+\beamer@sectionintoc {5}{Résultats et conclusion}{16}{0}{5}

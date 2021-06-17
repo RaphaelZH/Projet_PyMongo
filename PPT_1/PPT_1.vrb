@@ -1,0 +1,8 @@
+\frametitle{Cadre de Migration}
+^^ICadre capable de prendre en charge facilement la migration d’une base de données relationnelle (par exemple, MySQL) vers une base de données NoSQL (par exemple, MongoDB).
+^^I\begin{block}{Data Migration Module}
+^^I^^IUn ensemble de méthodes permettant une migration transparente entre les SGBD (par exemple, de MySQL vers MongoDB).
+^^I\end{block}
+^^I\begin{block}{Module de Mappage de Données}
+^^I^^IFournir une couche de persistance pour traiter les requêtes de base de données, tout en renvoyant les données dans un format approprié.
+^^I\end{block}

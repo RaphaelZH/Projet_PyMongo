@@ -1,0 +1,7 @@
+\frametitle{Dénormalisation}
+^^I\begin{block}{Dénormalisation}
+^^I\begin{itemize}
+^^I^^I^^I\item[•] La dénormalisation peut être définie comme la copie des mêmes données dans plusieurs documents ou tables afin de simplifier / optimiser le traitement des requêtes ou d’adapter les données de l’utilisateur à un modèle de données particulier. Elle  permet de stocker des données dans une structure adaptée pour simplifier le traitement des requêtes. L’objectif pour les systèmes NoSQL est de proposer un schéma de stockage permettant d’éviter l’utilisation des jointures pour lesquelles les systèmes NoSQL sont peu adaptés en raison de l’architecture distribuée sous-jacente.
+^^I^^I^^I\item[•]Systèmes applicables :  dépôts  clé-valeur, bases de données document, bases de données colonnes.
+^^I\end{itemize}
+^^I\end{block}
